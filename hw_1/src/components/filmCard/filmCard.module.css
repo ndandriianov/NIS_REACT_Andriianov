@@ -1,12 +1,19 @@
 .filmCard {
     display: flex;
     align-items: center;
-    gap: 16px;
+    justify-content: space-between;
     padding: 8px 12px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #fff;
     max-width: 600px;
+}
+
+.innerWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
 }
 
 .image {
@@ -25,4 +32,5 @@
 .year {
     font-size: 16px;
     color: #666;
+    margin-right: 100px;
 }

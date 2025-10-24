@@ -1,6 +1,7 @@
 import FilmCard from "../filmCard/FilmCard.tsx";
 import type {Film} from "../../model/film.ts";
 import {useState} from "react";
+import classes from "./FilmCardList.module.css";
 
 interface FilmCardListProps {
   films: Film[];
@@ -17,9 +18,14 @@ function FilmCardList({films, search, handleFavoritesChange}: FilmCardListProps)
 
   return (
     <div>
-      <button onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}>
-        {showOnlyFavorites ? 'Показать все' : 'Показать только избранные'}
-      </button>
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+        <button
+          onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}
+          className={classes.button}
+        >
+          {showOnlyFavorites ? 'Показать все' : 'Показать только избранные'}
+        </button>
+      </div>
 
       {showOnlyFavorites
         ?

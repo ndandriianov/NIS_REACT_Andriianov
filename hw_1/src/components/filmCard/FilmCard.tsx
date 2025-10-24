@@ -12,18 +12,20 @@ function FilmCard({film, changeIsFavorite}: FilmCardProps) {
 
   return (
     <div className={classes.filmCard}>
-      <img
-        src={film.poster}
-        alt='Не удалось загрузить изображение'
-        className={classes.image}
-      />
-      <div className={classes.title}>
-        {film.title}
+      <div className={classes.innerWrapper}>
+        <img
+          src={film.poster}
+          alt='Не удалось загрузить изображение'
+          className={classes.image}
+        />
+        <div className={classes.title}>
+          {film.title}
+        </div>
+        <div className={classes.year}>
+          {film.year}
+        </div>
       </div>
-      <div className={classes.year}>
-        {film.year}
-      </div>
-      <IsFavoriteIcon isFavourite={film.isFavorite} handleClick={handleClickOnIsFavorite} />
+      <IsFavoriteIcon isFavourite={film.isFavorite} handleClick={handleClickOnIsFavorite}/>
     </div>
   );
 }
