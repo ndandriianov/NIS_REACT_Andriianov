@@ -1,10 +1,10 @@
-import IsFavoriteIcon from "./components/isFavourite/IsFavoriteIcon.tsx";
+import FilmCard from "./components/filmCard/FilmCard.tsx";
+import {getMockFilms} from "./model/film.ts";
 
 function App() {
   return (
     <>
-      <IsFavoriteIcon isFavourite={true}/>
-      <IsFavoriteIcon isFavourite={false}/>
+      <FilmCard film={getMockFilms()[0]}/>
     </>
   )
 }
