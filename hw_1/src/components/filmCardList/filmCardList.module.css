@@ -1,0 +1,15 @@
+.button {
+    padding: 5px;
+    border-radius: 4px;
+    border: none;
+    color: cornflowerblue;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: scale(1.03);
+}
+
+.button:active {
+    transform: scale(0.98);
+}
