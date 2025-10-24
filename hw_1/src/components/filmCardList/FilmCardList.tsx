@@ -12,21 +12,36 @@ function FilmCardList({films, search, handleFavoritesChange}: FilmCardListProps)
   if (search.length >= 1) films = films.filter(film => film.title.toLowerCase().includes(search.toLowerCase()));
   const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
 
+  const favoriteFilms = films.filter(film => film.isFavorite)
+
+
   return (
     <div>
       <button onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}>
         {showOnlyFavorites ? 'Показать все' : 'Показать только избранные'}
       </button>
 
-      {films.length > 0
+      {showOnlyFavorites
         ?
-        films.map((film) => (
-          <FilmCard key={film.id} film={film} changeIsFavorite={handleFavoritesChange}/>
-        ))
+        favoriteFilms.length > 0
+          ?
+          favoriteFilms.map(film => (
+            <FilmCard key={film.id} film={film} changeIsFavorite={handleFavoritesChange}/>
+          ))
+          :
+          <div>
+            Ничего не удалось найти
+          </div>
         :
-        <div>
-          Ничего не удалось найти
-        </div>
+        films.length > 0
+          ?
+          films.map((film) => (
+            <FilmCard key={film.id} film={film} changeIsFavorite={handleFavoritesChange}/>
+          ))
+          :
+          <div>
+            Ничего не удалось найти
+          </div>
       }
     </div>
   )
