@@ -4,9 +4,12 @@ import classes from "./FilmCard.module.css";
 
 interface FilmCardProps {
   film: Film
+  changeIsFavorite: (id: number) => void
 }
 
-function FilmCard({film}: FilmCardProps) {
+function FilmCard({film, changeIsFavorite}: FilmCardProps) {
+  const handleClickOnIsFavorite = () => changeIsFavorite(film.id);
+
   return (
     <div className={classes.filmCard}>
       <img
@@ -20,7 +23,7 @@ function FilmCard({film}: FilmCardProps) {
       <div className={classes.year}>
         {film.year}
       </div>
-      <IsFavoriteIcon isFavourite={film.isFavorite}/>
+      <IsFavoriteIcon isFavourite={film.isFavorite} handleClick={handleClickOnIsFavorite} />
     </div>
   );
 }
