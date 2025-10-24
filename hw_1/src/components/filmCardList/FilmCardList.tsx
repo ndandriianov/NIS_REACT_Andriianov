@@ -15,11 +15,18 @@ function FilmCardList({films, search}: FilmCardListProps) {
 
   return (
     <div>
-      {filmsList.length > 0 && filmsList.map((film) => (
-        <FilmCard key={film.id} film={film} />
-      ))}
+      {filmsList.length > 0
+        ?
+        filmsList.map((film) => (
+          <FilmCard key={film.id} film={film}/>
+        ))
+        :
+        <div>
+          Ничего не удалось найти
+        </div>
+      }
     </div>
-  );
+  )
 }
 
 export default FilmCardList;
