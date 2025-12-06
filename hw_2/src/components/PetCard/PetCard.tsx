@@ -27,54 +27,36 @@ const initialState = (pet: Pet) => ({
 
 function petCardReducer(state: Pet, action: PetAction): Pet {
   switch (action.type) {
-    case "FEED":
-      if (action.energy > 0) {
-        return {
-          ...state,
-          energy: Math.min(state.energy + action.energy, MAX_ENERGY)
-        }
-      } else return state;
-    case "LEVEL_UP":
-      if (state.energy > 0) {
-        return {
-          ...state,
-          level: Math.min(state.level + 1, MAX_LEVEL)
-        }
-      } else return state;
-    case "CHEER":
-      if (state.energy > 0) {
-        return {
-          ...state,
-          mood: Math.min(state.mood + 1, MAX_MOOD)
-        }
-      } else return state;
+    case "FEED": {
+      if (action.energy <= 0 || state.energy >= MAX_ENERGY) return state;
+      return {...state, energy: Math.min(state.energy + action.energy, MAX_ENERGY)};
+    }
+    case "LEVEL_UP": {
+      if (state.energy <= 0 || state.level >= MAX_LEVEL) return state;
+      return {...state, level: Math.min(state.level + 1, MAX_LEVEL)};
+    }
+    case "CHEER": {
+      if (state.energy <= 0 || state.mood >= MAX_MOOD) return state;
+      return {...state, mood: Math.min(state.mood + 1, MAX_MOOD)};
+    }
     case "RESET":
-      return {
-        ...state,
-        energy: DEFAULT_ENERGY,
-        level: DEFAULT_LEVEL,
-        mood: DEFAULT_MOOD
-      }
+      return {...state, energy: DEFAULT_ENERGY, level: DEFAULT_LEVEL, mood: DEFAULT_MOOD};
+
     case "TIRE": {
+      if (state.energy <= 0) return state;
       const newEnergy = Math.max(state.energy - 1, 0);
       let newMood = state.mood;
-
       if (newEnergy <= 2) newMood = 0;
       else if (newEnergy <= 5) newMood = 1;
       else newMood = 2;
-
-      return {
-        ...state,
-        energy: newEnergy,
-        mood: newMood
-      };
+      return {...state, energy: newEnergy, mood: newMood};
     }
-    case "SET_MOOD":
-      console.log("SET_MOOD", state.energy);
-      return {
-        ...state,
-        mood: Math.min(Math.max(action.mood, MIN), MAX_MOOD)
-      }
+
+    case "SET_MOOD": {
+      const newMood = Math.min(Math.max(action.mood, MIN), MAX_MOOD);
+      if (newMood === state.mood) return state;
+      return {...state, mood: newMood};
+    }
   }
 }
 
@@ -96,19 +78,25 @@ const PetCard: React.FC<PetCardProps> = React.memo(({pet, onLog}) => {
   }, [state]);
 
   const handleFeed = useCallback(() => {
-    dispatch({type: "FEED", energy: energyToAdd});
-    onLog(`${state.name} был накормлен: +${energyToAdd} энергии`);
-  }, [state.name, onLog, energyToAdd]);
+    if (state.energy < MAX_ENERGY) {
+      dispatch({type: "FEED", energy: energyToAdd});
+      onLog(`${state.name} был накормлен: +${energyToAdd} энергии`);
+    }
+  }, [state.name, onLog, energyToAdd, state.energy]);
 
   const handleLevelUp = useCallback(() => {
-    dispatch({type: "LEVEL_UP"});
-    onLog(`${state.name} был повышен уровень`);
-  }, [state.name, onLog]);
+    if (state.energy > 0 && state.level < MAX_LEVEL) {
+      dispatch({type: "LEVEL_UP"});
+      onLog(`${state.name} был повышен уровень`);
+    }
+  }, [state, onLog]);
 
   const handleCheer = useCallback(() => {
-    dispatch({type: "CHEER"});
-    onLog(`${state.name} было улучшено настроение`);
-  }, [state.name, onLog]);
+    if (state.energy > 0 && state.mood < MAX_MOOD) {
+      dispatch({type: "CHEER"});
+      onLog(`${state.name} было улучшено настроение`);
+    }
+  }, [state.name, onLog, state.energy, state.mood]);
 
   const handleReset = useCallback(() => {
     dispatch({type: "RESET"});
