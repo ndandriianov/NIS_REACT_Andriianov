@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1a2b3c4d-0001-0000-0000-000000000001",
+    "name": "RoboCat",
+    "species": "cat",
+    "mood": 1,
+    "energy": 5,
+    "level": 1,
+    "avatar": "https://placekitten.com/200/200"
+  },
+  {
+    "id": "1a2b3c4d-0002-0000-0000-000000000002",
+    "name": "CyberDog",
+    "species": "dog",
+    "mood": 1,
+    "energy": 5,
+    "level": 1,
+    "avatar": "https://placedog.net/200/200"
+  },
+  {
+    "id": "1a2b3c4d-0003-0000-0000-000000000003",
+    "name": "MechaDragon",
+    "species": "dragon",
+    "mood": 1,
+    "energy": 5,
+    "level": 1,
+    "avatar": "https://via.placeholder.com/200x200?text=Dragon"
+  },
+  {
+    "id": "1a2b3c4d-0004-0000-0000-000000000004",
+    "name": "NeoCat",
+    "species": "cat",
+    "mood": 2,
+    "energy": 8,
+    "level": 3,
+    "avatar": "https://placekitten.com/201/201"
+  },
+  {
+    "id": "1a2b3c4d-0005-0000-0000-000000000005",
+    "name": "RoboPup",
+    "species": "dog",
+    "mood": 0,
+    "energy": 3,
+    "level": 2,
+    "avatar": "https://placedog.net/201/201"
+  }
+]
