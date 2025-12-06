@@ -1,4 +1,3 @@
-/* Reset и базовые стили */
 * {
   margin: 0;
   padding: 0;
@@ -31,32 +30,27 @@ button:hover {
   background-color: #1565c0;
 }
 
-/* Сетка приложения */
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
 }
 
-/* Отступы для главной области */
 .main {
   padding: 20px;
-  margin-right: 300px; /* чтобы не перекрывал Drawer с EventLog */
+  margin-right: 300px;
 }
 
-/* Стили для форм Material UI */
 .MuiFormControl-root {
   min-width: 180px;
   margin-bottom: 20px;
 }
 
-/* Мелкие анимации и hover для карточек */
 .card-hover:hover {
   transform: translateY(-4px);
   transition: transform 0.2s ease;
 }
 
-/* Scrollbar для боковой панели */
 ::-webkit-scrollbar {
   width: 8px;
 }

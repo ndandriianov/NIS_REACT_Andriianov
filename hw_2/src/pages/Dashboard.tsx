@@ -38,9 +38,11 @@ const Dashboard: React.FC = () => {
           label="Фильтр по виду"
         >
           <MenuItem value="all">Все</MenuItem>
-          <MenuItem value="cat">Коты</MenuItem>
+          <MenuItem value="фэнтези">Фэнтези</MenuItem>
+          <MenuItem value="bird">Птицы</MenuItem>
+          <MenuItem value="orange">Апельсины</MenuItem>
           <MenuItem value="dog">Собаки</MenuItem>
-          <MenuItem value="dragon">Драконы</MenuItem>
+          <MenuItem value="cat">Коты</MenuItem>
         </Select>
       </FormControl>
 
