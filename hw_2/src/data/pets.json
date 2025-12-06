@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1a2b3c4d-0002-0000-0000-000000000002",
+    "name": "CyberDog",
+    "species": "dog",
+    "mood": 1,
+    "energy": 5,
+    "level": 1,
+    "avatar": "https://placedog.net/200/200"
+  },
+  {
+    "id": "1a2b3c4d-0005-0000-0000-000000000004",
+    "name": "RoboPup",
+    "species": "dog",
+    "mood": 0,
+    "energy": 3,
+    "level": 2,
+    "avatar": "https://placedog.net/201/201"
+  },
+  {
+    "id": "1a2b3c4d-0005-0000-0000-000000000005",
+    "name": "Skebob",
+    "species": "bird",
+    "mood": 0,
+    "energy": 3,
+    "level": 2,
+    "avatar": "https://static.tengrinews.kz/userdata/news/2025/news_575722/thumb_xms/photo_517067.jpg.webp"
+  },
+  {
+    "id": "1a2b3c4d-0005-0000-0000-000000000006",
+    "name": "udindindindun",
+    "species": "orange",
+    "mood": 0,
+    "energy": 3,
+    "level": 2,
+    "avatar": "https://static.wikitide.net/walawepediawiki/5/5e/Udindindindun_Madindindindun.jpeg"
+  },
+  {
+    "id": "1a2b3c4d-0005-0000-0000-000000000007",
+    "name": "Катакан",
+    "species": "фэнтези",
+    "mood": 0,
+    "energy": 3,
+    "level": 2,
+    "avatar": "https://duskworld.ru/images/witcher3/monsters/katakan.jpg"
+  },
+  {
+    "id": "1a2b3c4d-0005-0000-0000-000000000008",
+    "name": "Вилохвост",
+    "species": "фэнтези",
+    "mood": 0,
+    "energy": 3,
+    "level": 2,
+    "avatar": "https://duskworld.ru/images/witcher3/monsters/vilohvost.jpg"
+  }
+]
